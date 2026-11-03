@@ -1,0 +1,49 @@
+/* Deliberately almost nothing. The browser's defaults are the design. */
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  background: #fff;
+  color: #000;
+  margin: 8px;
+  overflow-wrap: break-word;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+/* ---- after the fall ---- */
+
+/* Atoms must be inline-block so transforms apply to them. */
+.atom {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Lock scrolling on <html> only: hidden overflow on <body> too would make the
+   body clip pieces that fall below its (short) content box. */
+html.collapsed {
+  overflow: hidden;
+}
+
+/* Real bullets that sit exactly where the list markers were. */
+li.bulleted {
+  list-style: none;
+}
+.bullet {
+  width: 1.5em;
+  margin-left: -1.5em;
+  text-align: center;
+}
+
+/* Catches pointer input for dragging pieces around. */
+#grab-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  cursor: grab;
+  touch-action: none;
+}
+#grab-layer:active {
+  cursor: grabbing;
+}
